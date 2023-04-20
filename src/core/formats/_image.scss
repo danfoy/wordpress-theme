@@ -1,0 +1,7 @@
+@use "../text";
+
+.single-format-image {
+  .post-header-title {
+    font-family: text.$serif;
+  }
+}

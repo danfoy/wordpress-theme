@@ -1,0 +1,93 @@
+@use "sass:math";
+
+// Width breakpoints in pixels. Useful for matching to image assets.
+$breakpoint-smartphone-plus: 400px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop-small: 1024px;
+$breakpoint-desktop: 1200px;
+$breakpoint-desktop-large: 1920px;
+
+// CSS variables (custom properties) aliased to Sass variables for convinience.
+$line: var(--line);
+$text: var(--text);
+$text-small: calc(var(--text) * 0.75);
+$gutter: var(--gutter);
+
+// Border radii
+$border-radius-small: calc(var(--text) / 4);
+
+:root {
+  --text: 1.6rem; // 16px base
+  --line: calc(var(--text) * 1.5); // 24px base
+  --gutter: var(--line);
+}
+
+// Concessions for tiny screens
+@media (max-width: $breakpoint-smartphone-plus) {
+  :root {
+    --gutter: calc(var(--line) / 2);
+  }
+}
+
+@media (min-width: 600px) {
+  :root {
+    --text: 1.8rem;
+  }
+}
+
+/*
+Set root font size such that 1rem == 10px.
+
+This is for easier calculations using `rem` units. These are used extensively
+because the allow the site to scale to the browser default font size. Pixels
+are still used for images to support them being displayed at their native
+resolution and to match the units up with those used by WordPress's responsive
+image markup.
+
+See: https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
+*/
+html {
+  font-size: 62.5%;
+}
+
+// Set consistent vertical flow
+body {
+  line-height: var(--line);
+  font-size: var(--text);
+}
+
+// Remove default browser styles from figures
+figure {
+  margin: 0;
+}
+
+// Images should not be larger than the viewport without deliberate overrides
+img {
+  max-width: 100vw;
+  max-height: 100vh;
+  width: auto;
+  height: auto;
+}
+
+/*
+Layout scale for reference.
+
+The base is 16 to match the default browser text size. Values are 1x and 1.5x.
+
+4
+8
+12
+16
+24
+32
+48
+64
+96
+128
+192
+256
+384
+512
+640
+768
+ */

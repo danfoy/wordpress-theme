@@ -1,0 +1,14 @@
+@use "../colours";
+@use "../../structure/sizes";
+
+.wp-block-code {
+  padding: calc(sizes.$line / 2) calc(sizes.$gutter * 0.5);
+  margin: 0 calc(sizes.$gutter * 0.5);
+  overflow-y: scroll;
+  background: colours.$background-light;
+  border-radius: sizes.$border-radius-small;
+
+  code {
+    white-space: pre;
+  }
+}

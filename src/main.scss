@@ -1,0 +1,33 @@
+/*
+
+This is the main entrypoint for the theme styles.
+
+All SCSS modules are loaded here manually. Addtionally, some modules are loaded
+directly by other modules. The SASS engine handles importing them in an order
+respecting each module"s import requirements whilst avoiding duplication.
+
+You can also import folders as modules by providing an `_index.scss` file in
+each folder. I have avoided that because it clutters up the subfolders and
+means having to hunt around to enable/disable specific modules during
+development.
+
+*/
+
+@use "build/file-header";
+@use "./node_modules/modern-normalize/modern-normalize.css";
+
+@use "structure/sizes";
+@use "structure/masthead";
+
+@use "core/text";
+@use "core/colours";
+
+@use "core/post/post";
+@use "core/post/post-header";
+
+@use "core/blocks/wp-block-image";
+@use "core/blocks/wp-block-gallery";
+@use "core/blocks/wp-block-code";
+
+@use "core/formats/standard";
+@use "core/formats/image";

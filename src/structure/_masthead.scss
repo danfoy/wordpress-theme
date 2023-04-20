@@ -1,0 +1,101 @@
+@use "sizes";
+@use "../core/text";
+@use "../core/colours";
+@use "sass:color";
+
+$masthead-padding: calc(sizes.$line * 2);
+
+:root {
+  --masthead-padding: calc(sizes.$line * 2);
+}
+
+.wrapper {
+
+  @media (orientation: portrait) {
+    // padding-top: var(--masthead-padding);
+    padding-top: $masthead-padding;
+  }
+
+  @media (orientation: landscape) {
+    padding-left: calc(sizes.$line * 2);
+  }
+}
+
+.masthead {
+
+  @media (orientation: portrait) {
+    width: 100%;
+    height: calc(sizes.$line * 2);
+    top: 0;
+    flex-flow: row nowrap;
+  }
+
+  @media (orientation: landscape) {
+
+    flex-flow: column nowrap;
+    transform-origin: top left;
+    width: $masthead-padding;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    &-title,
+    &-nav {
+      transform: rotateZ(-90deg);
+      transform-origin: center bottom;
+    }
+  }
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: lowercase;
+  gap: sizes.$line;
+  font-family: text.$sans-serif;
+  position: fixed;
+  box-shadow: 0 0 sizes.$line 0 #aaa;
+  z-index: 200;
+  background: color.adjust(#fff, $alpha: -0.3);
+  border-bottom: 1px solid color.adjust(#fff, $alpha: -0.7);
+  backdrop-filter: blur(2.4rem);
+
+  &-title {
+
+    &-link,
+    & a,
+    & a:link,
+    & a:visited {
+      text-decoration: none;
+      display: inline-block;
+      padding: calc(sizes.$line / 2) sizes.$gutter;
+      font-weight: 900;
+      font-size: 2.4rem;
+      color: colours.$masthead-title;
+    }
+  }
+
+  &-nav {
+    padding: 0;
+    margin: 0 sizes.$gutter 0 0;
+
+    &-menu {
+      margin: 0;
+      padding: 0;
+
+      & .menu-item {
+        display: inline;
+        margin: 0;
+
+        a,
+        a:link,
+        a:visited {
+          text-decoration: none;
+          display: inline-block;
+          padding: 1.2rem 0.6rem;
+          font-size: 1.2rem;
+          color: colours.$text-secondary;
+        }
+      }
+    }
+  }
+}

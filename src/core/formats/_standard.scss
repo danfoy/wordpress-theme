@@ -1,0 +1,8 @@
+@use "../../structure/sizes";
+
+.format-standard {
+  @at-root .single & .post-header {
+    padding-bottom: sizes.$line;
+    padding-top: calc(sizes.$line * 5);
+  }
+}

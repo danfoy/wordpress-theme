@@ -1,0 +1,14 @@
+@use "../../structure/sizes";
+
+.post-header {
+  font-family: Lato, sans-serif;
+
+  &-title {
+    font-weight: 900;
+    margin-bottom: sizes.$line;
+  }
+
+  &-excerpt {
+    font-weight: 300;
+  }
+}

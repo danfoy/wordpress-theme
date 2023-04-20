@@ -1,0 +1,32 @@
+/*
+
+These two comments are preserved un-minified in the output. Previously I would
+have just put them in the root Sass file, but now Sass has moved to modules,
+these comments themselves need to be provided as a module. Modules are always
+loaded first, and the first comment block below needs to be at the top of the
+file for it to function as a WordPress theme.
+
+*/
+
+/*!
+Theme Name: danfoy2022
+Theme URI:
+Author: danfoy
+Author URI: https://www.danfoy.com
+Description: Theme for danfoy.com for 2022
+Version: 1.0.0
+License:
+License URI:
+Text Domain: danfoy2022
+Tags:
+*/
+
+/*!
+
+Hi! Feel free to have a look around.
+
+This stylesheet has an associated sourcemap. Use the browser developer tools
+when viewing the website in a browser to view the origianl, un-minified Sass
+modules.
+
+*/

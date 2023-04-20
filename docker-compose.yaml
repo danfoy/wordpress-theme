@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  # Database
+  db:
+    image: mysql:5.7
+    volumes: ['./data/db:/var/lib/mysql']
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    networks:
+      - danfoy2023
+  # phpmyadmin
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - '8080:80'
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: password
+      UPLOAD_LIMIT: 64M
+    networks:
+      - danfoy2023
+  # Wordpress
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    ports:
+      - '8000:80'
+    restart: always
+    volumes: [
+      './dist:/var/www/html/wp-content/themes/danfoy2021',
+      './data/uploads:/var/www/html/wp-content/uploads',
+      './data/plugins:/var/www/html/wp-content/plugins',
+      './env/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini',
+      ]
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DEBUG: 'true'
+    networks:
+      - danfoy2023
+networks:
+  danfoy2023:

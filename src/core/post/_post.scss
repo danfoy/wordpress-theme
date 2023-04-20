@@ -1,0 +1,17 @@
+@use "../../structure/sizes";
+@use "../../core/text";
+@use "../colours";
+
+.post {
+  max-width: 100vw;
+  overflow: hidden;
+  font-family: text.$serif;
+  text-rendering: optimizeLegibility; /* stylelint-disable value-keyword-case */
+  color: colours.$text-primary;
+
+  p code {
+    background: colours.$background-light;
+    border-radius: sizes.$border-radius-small;
+    padding: 0 calc(sizes.$text / 4);
+  }
+}

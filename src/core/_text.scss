@@ -1,0 +1,38 @@
+@use "colours";
+@use "../structure/sizes";
+
+$gutterable-elements: "p, ul, ol, li, aside, dd, figcaption, input, select, textarea, label";
+$monospace-elements: "code, kbd";
+$headings: "h1, h2, h3, h4, h5, h6";
+
+// Fonts
+$sans-serif: "Lato", sans-serif;
+$serif: "PT Serif", serif;
+$monospace: "Fira Code", monospace;
+
+body {
+  font-family: $sans-serif;
+  color: colours.$text-primary;
+}
+
+#{$gutterable-elements} {
+  padding: 0;
+  margin: sizes.$line sizes.$gutter;
+}
+
+#{$monospace-elements} {
+  font-family: $monospace;
+}
+
+#{$headings} {
+  margin: {
+    left: sizes.$gutter;
+    right: sizes.$gutter;
+  };
+}
+
+a,
+a:link,
+a:visited {
+  color: colours.$link;
+}

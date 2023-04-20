@@ -1,0 +1,29 @@
+@use "../../structure/sizes";
+@use "../text";
+
+// Annoying level of specificity necessary to override default styles
+.wp-block-gallery.has-nested-images {
+
+  figure.wp-block-image {
+
+    // Override WordPress-generated defaults on captions
+    figcaption {
+      position: relative;
+      left: inherit;
+      text-align: initial;
+      font-size: sizes.$text;
+      font-family: text.$sans-serif;
+      color: #555;
+      background: initial;
+      max-height: initial;
+      margin: {
+        top: calc(sizes.$line / 2);
+        bottom: calc(sizes.$line / 2);
+        left: sizes.$gutter;
+        right: sizes.$gutter;
+      };
+      padding: 0;
+      width: auto;
+    }
+  }
+}

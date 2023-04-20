@@ -1,0 +1,40 @@
+/*
+
+Colours are defined here. This will likely change a lot whilst I work out
+what kinds of colour descriptors I need.
+
+The colours are defined as css variable properties. This should allow me to
+implement colour themes in the future by overriding the variables.
+
+*/
+
+// Aliases
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
+$masthead-title: var(--masthead-title);
+$background-light: var(--background-light);
+$link: var(--link);
+
+// Default colours
+:root {
+  --text-primary: #333;
+  --text-secondary: #555;
+  --masthead-title: black;
+  --background-light: #eee;
+  --link: dodgerblue;
+}
+
+// Standardization
+
+/* 'Notched' devices extend the background colour around the notch, but offset
+the rest of the content to clear the notch area. This makes the sides of the
+site look weirdly cut-off when using mobiles in landscape mode. Setting the
+body to black simply hides the notch instead, looking much better particularly
+on devices with OLED screens. */
+body {
+  background-color: black;
+}
+
+.wrapper {
+  background-color: white; // Override body background colour
+}

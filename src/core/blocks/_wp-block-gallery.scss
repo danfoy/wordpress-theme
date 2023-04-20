@@ -1,0 +1,21 @@
+@use "../../structure/sizes";
+
+.wp-block-gallery {
+
+  &.has-nested-images {
+    gap: calc(sizes.$line / 2);
+  }
+
+  figure.wp-block-image {
+
+    // Override columns on mobile
+    &:not(#individual-image) {
+      width: auto;
+
+      // Respect WordPress-generated columns after breakpoint
+      @media (min-width: 756px) {
+        width: inherit;
+      }
+    }
+  }
+}
