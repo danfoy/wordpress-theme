@@ -3,61 +3,74 @@
 @use "../core/colours";
 @use "sass:color";
 
-$masthead-padding: calc(sizes.$line * 2);
+$masthead-size: var(--masthead-size);
 
 :root {
-  --masthead-padding: calc(sizes.$line * 2);
+  --masthead-size: #{calc(sizes.$line * 2)};
 }
 
 .wrapper {
-
-  @media (orientation: portrait) {
-    // padding-top: var(--masthead-padding);
-    padding-top: $masthead-padding;
-  }
-
-  @media (orientation: landscape) {
-    padding-left: calc(sizes.$line * 2);
-  }
+  min-height: 100vh;
 }
 
 .masthead {
 
-  @media (orientation: portrait) {
-    width: 100%;
-    height: calc(sizes.$line * 2);
-    top: 0;
-    flex-flow: row nowrap;
-  }
-
-  @media (orientation: landscape) {
-
-    flex-flow: column nowrap;
-    transform-origin: top left;
-    width: $masthead-padding;
-    height: 100%;
-    top: 0;
-    left: 0;
-
-    &-title,
-    &-nav {
-      transform: rotateZ(-90deg);
-      transform-origin: center bottom;
-    }
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-transform: lowercase;
-  gap: sizes.$line;
+
   font-family: text.$sans-serif;
-  position: fixed;
-  box-shadow: 0 0 sizes.$line 0 #aaa;
-  z-index: 200;
+  text-transform: lowercase;
+
   background: color.adjust(#fff, $alpha: -0.3);
-  border-bottom: 1px solid color.adjust(#fff, $alpha: -0.7);
   backdrop-filter: blur(2.4rem);
+  border-bottom: 1px solid color.adjust(#000, $alpha: -0.7);
+
+  // Masthead is at top of site when portait
+  @media (orientation: portrait) {
+
+    width: 100%;
+    height: $masthead-size;
+
+    // Add clearance for masthead
+    @at-root .wrapper {
+      // Padding rather than margin so wrapper background is behind masthead
+      padding-top: $masthead-size;
+    }
+
+    // Taller masthead on taller devices
+    @media (min-width: sizes.$breakpoint-smartphone-plus) {
+      @at-root :root {
+        --masthead-size: #{calc(sizes.$line * 3)};
+      }
+    }
+  }
+
+  // Masthead is at left of screen when landscape
+  @media (orientation: landscape) {
+    transform: rotateZ(-90deg) translateY(-100vh);
+    transform-origin: top right;
+    height: $masthead-size;
+    width: 100vh;
+
+    // Add clearance for masthead
+    @at-root .wrapper {
+      // Padding rather than margin so wrapper background is behind masthead
+      padding-left: $masthead-size;
+    }
+
+    // Wider masthead on wider devices
+    @media (min-width: sizes.$breakpoint-tablet) {
+      @at-root :root {
+        --masthead-size: #{calc(sizes.$line * 3)};
+      }
+    }
+  }
 
   &-title {
 
@@ -77,14 +90,22 @@ $masthead-padding: calc(sizes.$line * 2);
   &-nav {
     padding: 0;
     margin: 0 sizes.$gutter 0 0;
+    flex-grow: 2;
+    overflow: scroll;
 
     &-menu {
       margin: 0;
       padding: 0;
+      white-space: nowrap;
+
+      @media (orientation: portrait) {
+        text-align: center;
+      }
 
       & .menu-item {
         display: inline;
         margin: 0;
+        font-family: text.$monospace;
 
         a,
         a:link,
@@ -94,6 +115,48 @@ $masthead-padding: calc(sizes.$line * 2);
           padding: 1.2rem 0.6rem;
           font-size: 1.2rem;
           color: colours.$text-secondary;
+        }
+      }
+    }
+  }
+
+  &-buttons {
+    $button-base-size: calc(sizes.$line * 2);
+    $button-size: calc($button-base-size * 0.75);
+    $imagesize: calc(sizes.$line * 1);
+
+    display: flex;
+    gap: calc(sizes.$gutter / 2);
+    flex-direction: row-reverse;
+
+    margin-right: calc(sizes.$gutter * 0.75);
+
+    @media (orientation: landscape) {
+      margin-right: calc(sizes.$line * 0.75);
+    }
+
+    &-button {
+      height: $button-size;
+      width: $button-size;
+
+      padding: 0;
+
+      line-height: sizes.$line;
+
+      background: transparent;
+      border-radius: sizes.$border-radius-small;
+      border-width: 0;
+
+      appearance: none; // Remove default button styling on mobile
+
+      &-image {
+        height: $imagesize;
+        width: $imagesize;
+
+        vertical-align: text-bottom;
+
+        @media (orientation: landscape) {
+          transform: rotateZ(90deg);
         }
       }
     }

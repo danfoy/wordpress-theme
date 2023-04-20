@@ -79,5 +79,14 @@
                 ) );
                 ?>
 
+                <div class="masthead-buttons">
+                    <button class="masthead-buttons-button masthead-buttons-menu-button" type="button">
+                        <img class="masthead-buttons-button-image masthead-buttons-menu-button-image" alt="Menu" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNDgiIGhlaWdodD0iNDgiCnZpZXdCb3g9IjAgMCA0OCA0OCI+CjxwYXRoIGQ9Ik0gNS41IDkgQSAxLjUwMDE1IDEuNTAwMTUgMCAxIDAgNS41IDEyIEwgNDIuNSAxMiBBIDEuNTAwMTUgMS41MDAxNSAwIDEgMCA0Mi41IDkgTCA1LjUgOSB6IE0gNS41IDIyLjUgQSAxLjUwMDE1IDEuNTAwMTUgMCAxIDAgNS41IDI1LjUgTCA0Mi41IDI1LjUgQSAxLjUwMDE1IDEuNTAwMTUgMCAxIDAgNDIuNSAyMi41IEwgNS41IDIyLjUgeiBNIDUuNSAzNiBBIDEuNTAwMTUgMS41MDAxNSAwIDEgMCA1LjUgMzkgTCA0Mi41IDM5IEEgMS41MDAxNSAxLjUwMDE1IDAgMSAwIDQyLjUgMzYgTCA1LjUgMzYgeiI+PC9wYXRoPgo8L3N2Zz4="/>
+                    </button>
+                    <button class="masthead-buttons-button masthead-buttons-search-button" type="button">
+                        <img class="masthead-buttons-button-image masthead-buttons-search-button-image"  alt="Search" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNDgiIGhlaWdodD0iNDgiCnZpZXdCb3g9IjAgMCA0OCA0OCI+CjxwYXRoIGQ9Ik0gMjAuNSA2IEMgMTIuNTA5NjM0IDYgNiAxMi41MDk2NCA2IDIwLjUgQyA2IDI4LjQ5MDM2IDEyLjUwOTYzNCAzNSAyMC41IDM1IEMgMjMuOTU2MzU5IDM1IDI3LjEzMzcwOSAzMy43NzkwNDQgMjkuNjI4OTA2IDMxLjc1IEwgMzkuNDM5NDUzIDQxLjU2MDU0NyBBIDEuNTAwMTUgMS41MDAxNSAwIDEgMCA0MS41NjA1NDcgMzkuNDM5NDUzIEwgMzEuNzUgMjkuNjI4OTA2IEMgMzMuNzc5MDQ0IDI3LjEzMzcwOSAzNSAyMy45NTYzNTcgMzUgMjAuNSBDIDM1IDEyLjUwOTY0IDI4LjQ5MDM2NiA2IDIwLjUgNiB6IE0gMjAuNSA5IEMgMjYuODY5MDQ3IDkgMzIgMTQuMTMwOTU3IDMyIDIwLjUgQyAzMiAyMy42MDI2MTIgMzAuNzc2MTk4IDI2LjQwNTcxNyAyOC43OTEwMTYgMjguNDcwNzAzIEEgMS41MDAxNSAxLjUwMDE1IDAgMCAwIDI4LjQ3MDcwMyAyOC43OTEwMTYgQyAyNi40MDU3MTcgMzAuNzc2MTk5IDIzLjYwMjYxNCAzMiAyMC41IDMyIEMgMTQuMTMwOTUzIDMyIDkgMjYuODY5MDQzIDkgMjAuNSBDIDkgMTQuMTMwOTU3IDE0LjEzMDk1MyA5IDIwLjUgOSB6Ij48L3BhdGg+Cjwvc3ZnPg=="/>
+                    </button>
+                </div>
+
 
             </header>
