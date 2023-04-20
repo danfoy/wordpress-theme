@@ -2,3 +2,4 @@ node_modules/
 dist/
 Resources/
 data/
+node_modules
