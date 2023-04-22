@@ -13,6 +13,8 @@ $text-primary: var(--text-primary);
 $text-secondary: var(--text-secondary);
 $masthead-title: var(--masthead-title);
 $background-light: var(--background-light);
+$highlight-background: var(--highlight-background);
+$faint-foreground: var(--faint-foreground);
 $link: var(--link);
 
 // Default colours
@@ -21,6 +23,8 @@ $link: var(--link);
   --text-secondary: #555;
   --masthead-title: black;
   --background-light: #f0f0f0;
+  --highlight-background: #fff;
+  --faint-foreground: #d0d0d0;
   --link: deeppink;
 }
 

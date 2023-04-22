@@ -10,8 +10,11 @@ $masthead-size: var(--masthead-size);
 }
 
 .wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
   min-height: 100vh;
-  display: inline-block;
+  min-width: 100vw;
 }
 
 .masthead {

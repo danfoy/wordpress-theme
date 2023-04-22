@@ -2,24 +2,93 @@
 @use "../colours";
 @use "../../structure/sizes";
 
+@mixin vertical-card {
+  grid: auto auto auto auto / 100%;
+
+  & .post-header {
+    margin: 0;
+    grid-row: 2;
+  }
+
+  & .post-thumbnail {
+    grid-row: 1;
+  }
+
+  & .post-content {
+    grid-row: 3;
+  }
+
+  & .post-footer {
+    grid-row: 4;
+  }
+}
+
+@mixin horizontal-card {
+  grid: auto 1fr auto / 50% 50%;
+
+  & .post-header {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  & .post-thumbnail {
+    display: inline-block;
+    grid-column: 1;
+    grid-row: 1 / -1;
+  }
+
+  & .post-content {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  & .post-footer {
+    grid-column: 2;
+    grid-row: 3;
+  }
+}
+
 .home .post.format-image,
 .blog .post.format-image,
 .archive .post.format-image {
 
-  position: relative;
-  display: grid;
-  margin: sizes.$half-line sizes.$half-gutter calc(sizes.$half-line + sizes.$line) sizes.$half-gutter;
-
-  border: 1px solid #aaa;
-
   @media (orientation: portrait) {
-    grid-template-rows: [row1] auto [row2] auto [row3] auto [row4] auto;
+    &.image-portrait,
+    &.image-landscape,
+    &.image-square {
+      @include vertical-card;
+    }
   }
 
   @media (orientation: landscape) {
-    grid-template-columns: [col1] 50% [col2] 50%;
-    grid-template-rows: [toprow] auto [middlerow] 1fr [bottomrow] auto;
+    &.image-landscape {
+      @include vertical-card;
+    }
+
+    &.image-portrait,
+    &.image-square {
+      @include horizontal-card;
+    }
   }
+
+  position: relative;
+  display: grid;
+  margin: {
+    top: sizes.$half-line;
+    right: sizes.$half-gutter;
+    bottom: calc(sizes.$half-line + sizes.$line);
+    left: sizes.$half-gutter;
+  }
+
+  border: 1px solid colours.$faint-foreground;
+
+  // @media (orientation: portrait) {
+  //   @include horizontal-card;
+  // }
+
+  // @media (orientation: landscape) {
+  //   @include vertical-card;
+  // }
 
   // Remove margins from items in a frame
   & #{text.$gutterable-elements} {
@@ -28,26 +97,20 @@
 
   & .post-header {
 
-    @media (orientation: portrait) {
-      margin: 0;
-      grid-row: 2;
-    }
-
-    @media (orientation: landscape) {
-      grid-column: 2;
-      grid-row: 1;
-    }
-
     &-title {
-      margin: sizes.$half-gutter;
+      margin: 0;
 
       &-link {
         font-size: sizes.$text;
         color: colours.$text-primary;
-        text-decoration: underline;
+        background-color: white;
+        text-decoration: none;
+        line-height: sizes.$line;
+        display: inline-block;
+        margin: sizes.$half-gutter;
 
         &:hover {
-          text-decoration: none;
+          text-decoration: underline;
         }
       }
     }
@@ -55,18 +118,12 @@
 
   & .post-thumbnail {
     font-size: 0;
-    padding: sizes.$half-line sizes.$half-gutter;
-    background-color: white;
+    padding: sizes.$half-gutter;
+    background-color: colours.$highlight-background;
 
-    @media (orientation: portrait) {
-      grid-row: 1;
-    }
-
-    @media (orientation: landscape) {
-      display: inline-block;
-      grid-column: 1;
-      grid-row: 1 / -1;
-    }
+    // &:hover {
+    //   padding: 0;
+    // }
 
     & .attachment-post-thumbnail {
       display: block;
@@ -78,15 +135,6 @@
 
   & .post-content {
     font-family: text.$sans-serif;
-
-    @media (orientation: portrait) {
-      grid-row: 3;
-    }
-
-    @media (orientation: landscape) {
-      grid-column: 2;
-      grid-row: 2;
-    }
 
     & p {
       margin: sizes.$line sizes.$half-gutter;
@@ -102,17 +150,8 @@
   }
 
   & .post-footer {
-    margin: sizes.$half-line sizes.$half-gutter;
-    font-size: calc(sizes.$text * 0.75);
-
-    @media (orientation: portrait) {
-      grid-row: 4;
-    }
-
-    @media (orientation: landscape) {
-      grid-column: 2;
-      grid-row: 3;
-    }
+    margin: sizes.$half-line sizes.$half-gutter sizes.$half-gutter sizes.$half-gutter;
+    font-size: sizes.$text-small;
 
     &-meta-list {
       margin: 0;

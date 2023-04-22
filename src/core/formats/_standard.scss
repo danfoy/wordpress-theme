@@ -1,5 +1,6 @@
 @use "../../structure/sizes";
 @use "../text";
+@use "../colours";
 
 .format-standard {
   @at-root .single & .post-header {
@@ -9,6 +10,7 @@
 
   &::after {
     content: "* * *";
+    color: colours.$faint-foreground;
     display: block;
     text-align: center;
     line-height: sizes.$line;
