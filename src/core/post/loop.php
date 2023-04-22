@@ -8,11 +8,11 @@ if ( have_posts() ) :
         // Setup post data
         the_post();
         ?>
-        <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+        <article <?php post_class( get_image_orientation() ); ?> id="post-<?php the_ID(); ?>">
             <header class="post-header">
                 <h2 class="post-header-title">
                     <?php
-                    if (!is_singular()) { echo '<a href="' . get_permalink() . '" title="' . the_title_attribute(['echo' => false]) . '" class="post-title-link">'; };
+                    if (!is_singular()) { echo '<a href="' . get_permalink() . '" title="' . the_title_attribute(['echo' => false]) . '" class="post-header-title-link">'; };
                     the_title();
                     if (!is_singular()) { echo '</a>'; };
                     ?>
@@ -22,18 +22,40 @@ if ( have_posts() ) :
                 <div class="post-header-excerpt">
                     <?php the_excerpt(); ?>
                 </div>
-                <?php
-                }
-                ?>
+                <?php } ?>
             </header>
+
+            <?php if (!is_singular() && has_post_thumbnail()) {;?>
+            <figure class="post-thumbnail">
+                <?php the_post_thumbnail() ?>
+            </figure>
+            <?php } ?>
 
             <div class="post-content">
                 <?php
-                if (!is_singular() && has_post_thumbnail()) the_post_thumbnail();
                 if (!is_singular()) the_excerpt();
                 if (is_singular()) the_content();
                 ?>
             </div>
+
+            <footer class="post-footer">
+                <div class="post-footer-meta">
+
+                    <?php
+                    // $UTCDate = get_the_date('c');
+                    $UTC_date = get_the_date('Y-m-d');
+                    $UTC_time = get_the_date('g:i:s');
+                    $UTC_offset = get_the_time('O');
+                    $UTC_datetime = $UTC_date . 'T' . $UTC_time . '.000' . $UTC_offset;
+                    $photoDate = get_the_date('F Y');
+                    ?>
+                    <ul class="post-footer-meta-list">
+                        <li class="post-footer-meta-list-item post-footer-meta-date">
+                            <time class="post-footer-meta-date-datetime" datetime="<?php echo $UTC_datetime ?>"><?php echo $photoDate ?></time>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
 
         </article>
 

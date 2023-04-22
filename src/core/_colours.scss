@@ -20,8 +20,8 @@ $link: var(--link);
   --text-primary: #333;
   --text-secondary: #555;
   --masthead-title: black;
-  --background-light: #eee;
-  --link: dodgerblue;
+  --background-light: #f0f0f0;
+  --link: deeppink;
 }
 
 // Standardization
@@ -36,5 +36,5 @@ body {
 }
 
 .wrapper {
-  background-color: white; // Override body background colour
+  background-color: $background-light; // Override body background colour
 }

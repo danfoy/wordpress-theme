@@ -1,5 +1,46 @@
 <?php
 
+/*
+
+CUSTOM FUNCTIONS
+
+*/
+
+/**
+ * Returns a string describing the orientation of the image with the supplied
+ * ID, or the orientation for the current post's featured image if no ID is
+ * provided.
+ *
+ * Will be either 'image-landscape', 'image-portrait', or 'image-square' if the
+ * ID is resolved, or an empty string if it is not. This behaviour is so that
+ * it can be used as an argument for WordPress template functions which modify
+ * the element classlist, e.g. `post-class()`.
+ *
+ * @param string $image_ID = get_post_thumbnail_ID()
+ * @return string
+ */
+function get_image_orientation($image_ID = '') {
+    $post_thumbnail_ID = get_post_thumbnail_id();
+    if (!$image_ID && $post_thumbnail_ID) $image_ID = $post_thumbnail_ID;
+    if (!$image_ID) return '';
+    $image_meta = wp_get_attachment_metadata( $image_ID );
+    if (!$image_meta) return '';
+
+    $image_orientation = $image_meta['width'] == $image_meta['height']
+        ? 'image-square'
+        : ( $image_meta['width'] > $image_meta['height']
+            ? 'image-landscape'
+            : 'image-portrait' );
+    return $image_orientation;
+};
+
+
+/*
+
+THEME SETUP
+
+*/
+
 if ( function_exists( 'add_theme_support' ) ) {
 
     // Enable post formats

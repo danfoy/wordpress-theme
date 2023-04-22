@@ -1,7 +1,125 @@
 @use "../text";
+@use "../colours";
+@use "../../structure/sizes";
 
-.single-format-image {
-  .post-header-title {
-    font-family: text.$serif;
+.home .post.format-image,
+.blog .post.format-image,
+.archive .post.format-image {
+
+  position: relative;
+  display: grid;
+  margin: sizes.$half-line sizes.$half-gutter calc(sizes.$half-line + sizes.$line) sizes.$half-gutter;
+
+  border: 1px solid #aaa;
+
+  @media (orientation: portrait) {
+    grid-template-rows: [row1] auto [row2] auto [row3] auto [row4] auto;
+  }
+
+  @media (orientation: landscape) {
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-rows: [toprow] auto [middlerow] 1fr [bottomrow] auto;
+  }
+
+  // Remove margins from items in a frame
+  & #{text.$gutterable-elements} {
+    margin: sizes.$line sizes.$half-gutter;
+  }
+
+  & .post-header {
+
+    @media (orientation: portrait) {
+      margin: 0;
+      grid-row: 2;
+    }
+
+    @media (orientation: landscape) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    &-title {
+      margin: sizes.$half-gutter;
+
+      &-link {
+        font-size: sizes.$text;
+        color: colours.$text-primary;
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  & .post-thumbnail {
+    font-size: 0;
+    padding: sizes.$half-line sizes.$half-gutter;
+    background-color: white;
+
+    @media (orientation: portrait) {
+      grid-row: 1;
+    }
+
+    @media (orientation: landscape) {
+      display: inline-block;
+      grid-column: 1;
+      grid-row: 1 / -1;
+    }
+
+    & .attachment-post-thumbnail {
+      display: block;
+      margin: 0 auto;
+
+      max-height: 75vh;
+    }
+  }
+
+  & .post-content {
+    font-family: text.$sans-serif;
+
+    @media (orientation: portrait) {
+      grid-row: 3;
+    }
+
+    @media (orientation: landscape) {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    & p {
+      margin: sizes.$line sizes.$half-gutter;
+    }
+
+    & p:first-child {
+      margin-top: 0;
+    }
+
+    & p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & .post-footer {
+    margin: sizes.$half-line sizes.$half-gutter;
+    font-size: calc(sizes.$text * 0.75);
+
+    @media (orientation: portrait) {
+      grid-row: 4;
+    }
+
+    @media (orientation: landscape) {
+      grid-column: 2;
+      grid-row: 3;
+    }
+
+    &-meta-list {
+      margin: 0;
+
+      &-item {
+        margin: 0;
+      }
+    }
   }
 }

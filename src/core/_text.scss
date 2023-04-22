@@ -1,9 +1,9 @@
 @use "colours";
 @use "../structure/sizes";
 
-$gutterable-elements: "p, ul, ol, li, aside, dd, figcaption, input, select, textarea, label";
 $monospace-elements: "code, kbd";
 $headings: "h1, h2, h3, h4, h5, h6";
+$gutterable-elements: "p, ul, ol, li, aside, dd, figcaption, input, select, textarea, label #{$headings}";
 
 // Fonts
 $sans-serif: "Lato", sans-serif;

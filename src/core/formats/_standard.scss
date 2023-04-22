@@ -1,8 +1,26 @@
 @use "../../structure/sizes";
+@use "../text";
 
 .format-standard {
   @at-root .single & .post-header {
     padding-bottom: sizes.$line;
     padding-top: calc(sizes.$line * 5);
+  }
+
+  &::after {
+    content: "* * *";
+    display: block;
+    text-align: center;
+    line-height: sizes.$line;
+    margin: sizes.$line sizes.$gutter;
+  }
+
+  .post-footer-meta-date-datetime {
+    font-family: text.$serif;
+
+    &::before {
+      content: "—";
+      margin-right: 0.5em;
+    }
   }
 }
