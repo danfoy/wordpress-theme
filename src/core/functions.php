@@ -35,6 +35,37 @@ function get_image_orientation($image_ID = '') {
 };
 
 
+/**
+ * Get the `<img>` element from the first `wp-block-image` block in the provided
+ * content.
+ *
+ * @param string $content post data from get_the_content();
+ * @return string filtered content
+ */
+function extract_first_image( $content ) {
+    $regex = '/.*class="wp-block-image.*(<img.*\/>)/sU';
+    $first_image = preg_match($regex, $content, $images);
+    $image = count($images) > 1
+        ? $images[1]
+        : '';
+
+    return $image;
+};
+
+/**
+ * Return post content from `get_the_content()` with the first `wp-block-image`
+ * block stripped out.
+ *
+ * @param string $content post data from get_the_content();
+ * @return string filtered content
+ */
+function strip_image_from_content( $content ) {
+    $post_content_regex = '/.*(<(div|figure) class="wp-block-image.*<\/(?2)>)/s';
+    $content = preg_replace($post_content_regex, '', $content, 1);
+    return $content;
+};
+
+
 /*
 
 THEME SETUP

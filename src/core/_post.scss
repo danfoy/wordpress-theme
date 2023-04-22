@@ -10,9 +10,15 @@
   color: colours.$text-primary;
 
   p code {
-    background: colours.$background-light;
     border-radius: sizes.$border-radius-small;
     padding: 0 calc(sizes.$text / 4);
+    background: white;
+  }
+
+  &-image img {
+    display: block;
+    max-height: 100vh;
+    margin: 0 auto;
   }
 
   &-header {
