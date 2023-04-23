@@ -15,35 +15,52 @@ $text-small: calc(var(--text) * 0.75);
 $gutter: var(--gutter);
 $half-gutter: calc($gutter / 2);
 $masthead-size: var(--masthead-size);
+$usable-width: var(--usable-width);
+$usable-height: var(--usable-height);
 
 // Border radii
 $border-radius-small: calc(var(--text) / 4);
 
 :root {
+
+  // Base units
   --text: 1.6rem; // 16px base
   --line: calc(var(--text) * 1.5); // 24px base
   --gutter: var(--line);
-  --masthead-size: #{calc($line * 2)};
+
+  // Base unit variants
+  --text-small: calc(var(--text) * 0.75);
+  --half-line: calc(var(--line) / 2);
+  --half-gutter: calc(var(--gutter) / 2);
+
+  // Masthead
+  --masthead-size: calc(var(--line) * 2);
+  --usable-width: 100vw;
+  --usable-height: 100vh;
 
   @media (orientation: portrait) {
     @media (min-width: $breakpoint-smartphone-plus) {
-      --masthead-size: #{calc($line * 3)};
+      --masthead-size: calc(var(--line) * 3);
+      --usable-height: calc(100vh - var(--masthead-size));
     }
   }
 
   @media (orientation: landscape) {
+    --usable-width: calc(100vw - var(--masthead-size));
+
     @media (min-width: $breakpoint-tablet) {
-      --masthead-size: #{calc($line * 3)};
+      --masthead-size: calc(var(--line) * 3);
     }
   }
 }
+
 .wrapper {
   @media (orientation: portrait) {
-    padding-top: $masthead-size;
+    padding-top: var(--masthead-size);
   }
 
   @media (orientation: landscape) {
-    padding-left: $masthead-size;
+    padding-left: var(--masthead-size);
   }
 }
 
