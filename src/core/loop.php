@@ -14,7 +14,7 @@ if ( have_posts() ) :
         $post_content = apply_filters( 'the_content', get_the_content() );
 
         ?>
-        <article <?php post_class( get_image_orientation() ); ?> id="post-<?php the_ID(); ?>">
+        <article <?php post_class( danfoy2023_get_image_orientation() ); ?> id="post-<?php the_ID(); ?>">
             <header class="post-header">
                 <h2 class="post-header-title">
                     <?php
@@ -33,8 +33,8 @@ if ( have_posts() ) :
 
             <?php
             if ( is_singular() && get_post_format() == 'image' ) {
-                $first_image = extract_first_image( $post_content );
-                $post_content = strip_image_from_content( $post_content ); ?>
+                $first_image = danfoy2023_extract_first_image( $post_content );
+                $post_content = danfoy2023_strip_image_from_content( $post_content ); ?>
             <figure class="post-image">
                 <?php echo $first_image; ?>
             </figure>
@@ -61,7 +61,6 @@ if ( have_posts() ) :
                 <div class="post-footer-meta">
 
                     <?php
-                    // $UTCDate = get_the_date('c');
                     $UTC_date = get_the_date('Y-m-d');
                     $UTC_time = get_the_date('g:i:s');
                     $UTC_offset = get_the_time('O');

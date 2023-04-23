@@ -19,7 +19,7 @@ CUSTOM FUNCTIONS
  * @param string $image_ID = get_post_thumbnail_ID()
  * @return string
  */
-function get_image_orientation($image_ID = '') {
+function danfoy2023_get_image_orientation($image_ID = '') {
     $post_thumbnail_ID = get_post_thumbnail_id();
     if (!$image_ID && $post_thumbnail_ID) $image_ID = $post_thumbnail_ID;
     if (!$image_ID) return '';
@@ -42,7 +42,7 @@ function get_image_orientation($image_ID = '') {
  * @param string $content post data from get_the_content();
  * @return string filtered content
  */
-function extract_first_image( $content ) {
+function danfoy2023_extract_first_image( $content ) {
     $regex = '/.*class="wp-block-image.*(<img.*\/>)/sU';
     $first_image = preg_match($regex, $content, $images);
     $image = count($images) > 1
@@ -59,7 +59,7 @@ function extract_first_image( $content ) {
  * @param string $content post data from get_the_content();
  * @return string filtered content
  */
-function strip_image_from_content( $content ) {
+function danfoy2023_strip_image_from_content( $content ) {
     $post_content_regex = '/.*(<(div|figure) class="wp-block-image.*<\/(?2)>)/s';
     $content = preg_replace($post_content_regex, '', $content, 1);
     return $content;
@@ -106,19 +106,19 @@ if ( function_exists( 'add_theme_support' ) ) {
 }
 
 
-function danfoy2022_styles() {
-    wp_register_style( 'danfoy2022_style', get_template_directory_uri() . '/style.css', array(), '1.0.0' );
-    wp_enqueue_style( 'danfoy2022_style' );
+function danfoy2023_styles() {
+    wp_register_style( 'danfoy2023_style', get_template_directory_uri() . '/style.css', array(), '1.0.0' );
+    wp_enqueue_style( 'danfoy2023_style' );
 }
-add_action( 'wp_enqueue_scripts', 'danfoy2022_styles' );
+add_action( 'wp_enqueue_scripts', 'danfoy2023_styles' );
 
 
-function danfoy2022_menus() {
+function danfoy2023_menus() {
     register_nav_menus( array(
         'masthead-nav-menu' => 'Masthead (Primary)',
     ) );
 }
-add_action( 'init', 'danfoy2022_menus' );
+add_action( 'init', 'danfoy2023_menus' );
 
 /**
  * Remove wrapping paragraph tags from images
