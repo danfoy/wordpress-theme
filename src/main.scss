@@ -13,20 +13,20 @@ development.
 
 */
 
-@use "build/file-header";
+@use "./build/file-header";
 @use "./node_modules/modern-normalize/modern-normalize.css";
 
-@use "structure/sizes";
-@use "structure/masthead";
+@use "core/sizes";
+@use "core/masthead";
 
 @use "core/text";
 @use "core/colours";
 
 @use "core/post";
 
-@use "core/blocks/wp-block-image";
-@use "core/blocks/wp-block-gallery";
-@use "core/blocks/wp-block-code";
+@use "blocks/wp-block-image";
+@use "blocks/wp-block-gallery";
+@use "blocks/wp-block-code";
 
-@use "core/formats/standard";
-@use "core/formats/image";
+@use "formats/standard";
+@use "formats/image";

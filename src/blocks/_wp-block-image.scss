@@ -1,5 +1,5 @@
-@use "../../structure/sizes";
-@use "../text";
+@use "../core/sizes";
+@use "../core/text";
 
 // Annoying level of specificity necessary to override default styles
 .wp-block-gallery.has-nested-images {

@@ -1,6 +1,6 @@
-@use "../text";
-@use "../colours";
-@use "../../structure/sizes";
+@use "../core/text";
+@use "../core/colours";
+@use "../core/sizes";
 
 @mixin vertical-card {
   grid: auto auto auto auto / 100%;

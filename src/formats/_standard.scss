@@ -1,6 +1,6 @@
-@use "../../structure/sizes";
-@use "../text";
-@use "../colours";
+@use "../core/sizes";
+@use "../core/text";
+@use "../core/colours";
 
 .format-standard {
   @at-root .single & .post-header {

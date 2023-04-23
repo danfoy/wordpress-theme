@@ -1,13 +1,7 @@
 @use "sizes";
-@use "../core/text";
-@use "../core/colours";
+@use "text";
+@use "colours";
 @use "sass:color";
-
-$masthead-size: var(--masthead-size);
-
-:root {
-  --masthead-size: #{calc(sizes.$line * 2)};
-}
 
 .wrapper {
   position: absolute;
@@ -39,41 +33,15 @@ $masthead-size: var(--masthead-size);
   @media (orientation: portrait) {
 
     width: 100%;
-    height: $masthead-size;
-
-    // Add clearance for masthead
-    @at-root .wrapper {
-      // Padding rather than margin so wrapper background is behind masthead
-      padding-top: $masthead-size;
-    }
-
-    // Taller masthead on taller devices
-    @media (min-width: sizes.$breakpoint-smartphone-plus) {
-      @at-root :root {
-        --masthead-size: #{calc(sizes.$line * 3)};
-      }
-    }
+    height: sizes.$masthead-size;
   }
 
   // Masthead is at left of screen when landscape
   @media (orientation: landscape) {
     transform: rotateZ(-90deg) translateY(-100vh);
     transform-origin: top right;
-    height: $masthead-size;
+    height: sizes.$masthead-size;
     width: 100vh;
-
-    // Add clearance for masthead
-    @at-root .wrapper {
-      // Padding rather than margin so wrapper background is behind masthead
-      padding-left: $masthead-size;
-    }
-
-    // Wider masthead on wider devices
-    @media (min-width: sizes.$breakpoint-tablet) {
-      @at-root :root {
-        --masthead-size: #{calc(sizes.$line * 3)};
-      }
-    }
   }
 
   &-title {

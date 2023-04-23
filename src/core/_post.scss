@@ -1,6 +1,6 @@
-@use "../structure/sizes";
-@use "./text";
-@use "./colours";
+@use "sizes";
+@use "text";
+@use "colours";
 
 .post {
   max-width: 100vw;
