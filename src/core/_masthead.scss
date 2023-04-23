@@ -33,14 +33,14 @@
   @media (orientation: portrait) {
 
     width: 100%;
-    height: sizes.$masthead-size;
+    height: var(--masthead-size);
   }
 
   // Masthead is at left of screen when landscape
   @media (orientation: landscape) {
     transform: rotateZ(-90deg) translateY(-100vh);
     transform-origin: top right;
-    height: sizes.$masthead-size;
+    height: var(--masthead-size);
     width: 100vh;
   }
 
@@ -52,7 +52,7 @@
     & a:visited {
       text-decoration: none;
       display: inline-block;
-      padding: calc(sizes.$line / 2) sizes.$gutter;
+      padding: calc(var(--line) / 2) var(--gutter);
       font-weight: 900;
       font-size: 2.4rem;
       color: colours.$masthead-title;
@@ -61,7 +61,7 @@
 
   &-nav {
     padding: 0;
-    margin: 0 sizes.$gutter 0 0;
+    margin: 0 var(--gutter) 0 0;
     flex-grow: 2;
     overflow: scroll;
 
@@ -93,18 +93,18 @@
   }
 
   &-buttons {
-    $button-base-size: calc(sizes.$line * 2);
+    $button-base-size: calc(var(--line) * 2);
     $button-size: calc($button-base-size * 0.75);
-    $imagesize: calc(sizes.$line * 1);
+    $imagesize: calc(var(--line) * 1);
 
     display: flex;
-    gap: calc(sizes.$gutter / 2);
+    gap: calc(var(--gutter) / 2);
     flex-direction: row-reverse;
 
-    margin-right: calc(sizes.$gutter * 0.75);
+    margin-right: calc(var(--gutter) * 0.75);
 
     @media (orientation: landscape) {
-      margin-right: calc(sizes.$line * 0.75);
+      margin-right: calc(var(--line) * 0.75);
     }
 
     &-button {
@@ -113,10 +113,10 @@
 
       padding: 0;
 
-      line-height: sizes.$line;
+      line-height: var(--line);
 
       background: transparent;
-      border-radius: sizes.$border-radius-small;
+      border-radius: var(--border-radius-small);
       border-width: 0;
 
       appearance: none; // Remove default button styling on mobile

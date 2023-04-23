@@ -3,7 +3,7 @@
 .wp-block-gallery {
 
   &.has-nested-images {
-    gap: calc(sizes.$line / 2);
+    gap: calc(var(--line) / 2);
   }
 
   figure.wp-block-image {

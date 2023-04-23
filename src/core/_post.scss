@@ -10,8 +10,8 @@
   color: colours.$text-primary;
 
   p code {
-    border-radius: sizes.$border-radius-small;
-    padding: 0 calc(sizes.$text / 4);
+    border-radius: var(--border-radius-small);
+    padding: 0 calc(var(--text) / 4);
     background: white;
   }
 
@@ -25,7 +25,7 @@
 
     &-title {
       font-weight: 600;
-      margin-bottom: sizes.$line;
+      margin-bottom: var(--line);
     }
 
     &-excerpt {
@@ -34,7 +34,7 @@
   }
 
   &-footer {
-    margin: sizes.$line sizes.$gutter;
+    margin: var(--line) var(--gutter);
 
     &-meta {
 

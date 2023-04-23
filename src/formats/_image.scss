@@ -57,18 +57,18 @@
   & .post-footer { grid-area: 4; }
   & .post-image {
     grid-area: 1;
-    max-height: sizes.$usable-height;
+    max-height: var(--usable-height);
   }
 }
 
 @mixin split-image-showcase {
-  grid: auto 1fr auto / 2fr calc((sizes.$usable-width / 5) * 2);
+  grid: auto 1fr auto / 2fr calc((var(--usable-width) / 5) * 2);
 
   & .post-header {
     grid-area: 1 / 2;
 
     & #{text.$gutterable-elements} {
-      margin: sizes.$line sizes.$half-gutter;
+      margin: var(--line) var(--half-gutter);
     }
   }
   & .post-footer { grid-area: 3 / 2; }
@@ -76,14 +76,14 @@
     grid-area: 2 / 2;
 
     & #{text.$gutterable-elements} {
-      margin: sizes.$line sizes.$half-gutter;
+      margin: var(--line) var(--half-gutter);
     }
   }
   & .post-image {
     grid-area: 1 / 1 / -1 / 1;
 
     position: fixed;
-    max-width: calc((( sizes.$usable-width / 5 ) * 3));
+    max-width: calc((( var(--usable-width) / 5 ) * 3));
 
     line-height: 100vh;
     text-align: center;
@@ -141,17 +141,17 @@
   position: relative;
   display: grid;
   margin: {
-    top: sizes.$half-line;
-    right: sizes.$half-gutter;
-    bottom: calc(sizes.$half-line + sizes.$line);
-    left: sizes.$half-gutter;
+    top: var(--half-line);
+    right: var(--half-gutter);
+    bottom: calc(var(--half-line) + var(--line));
+    left: var(--half-gutter);
   }
 
   border: 1px solid colours.$faint-foreground;
 
   // Remove margins from items in a frame
   & #{text.$gutterable-elements} {
-    margin: sizes.$line sizes.$half-gutter;
+    margin: var(--line) var(--half-gutter);
   }
 
   & .post-header {
@@ -160,13 +160,13 @@
       margin: 0;
 
       &-link {
-        font-size: sizes.$text;
+        font-size: var(--text);
         color: colours.$text-primary;
         background-color: white;
         text-decoration: none;
-        line-height: sizes.$line;
+        line-height: var(--line);
         display: inline-block;
-        margin: sizes.$half-gutter;
+        margin: var(--half-gutter);
 
         &:hover {
           text-decoration: underline;
@@ -177,7 +177,7 @@
 
   & .post-thumbnail {
     font-size: 0;
-    padding: sizes.$half-gutter;
+    padding: var(--half-gutter);
     background-color: colours.$highlight-background;
 
     // &:hover {
@@ -196,7 +196,7 @@
     font-family: text.$sans-serif;
 
     & p {
-      margin: sizes.$line sizes.$half-gutter;
+      margin: var(--line) var(--half-gutter);
     }
 
     & p:first-child {
@@ -209,8 +209,8 @@
   }
 
   & .post-footer {
-    margin: sizes.$half-line sizes.$half-gutter sizes.$half-gutter sizes.$half-gutter;
-    font-size: sizes.$text-small;
+    margin: var(--half-line) var(--half-gutter) var(--half-gutter) var(--half-gutter);
+    font-size: var(--text-small);
 
     &-meta-list {
       margin: 0;

@@ -17,7 +17,7 @@ body {
 
 #{$gutterable-elements} {
   padding: 0;
-  margin: sizes.$line sizes.$gutter;
+  margin: var(--line) var(--gutter);
 }
 
 #{$monospace-elements} {
@@ -26,8 +26,8 @@ body {
 
 #{$headings} {
   margin: {
-    left: sizes.$gutter;
-    right: sizes.$gutter;
+    left: var(--gutter);
+    right: var(--gutter);
   };
 }
 

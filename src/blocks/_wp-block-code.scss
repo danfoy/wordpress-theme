@@ -2,10 +2,10 @@
 @use "../core/sizes";
 
 .wp-block-code {
-  padding: calc(sizes.$line / 2) calc(sizes.$gutter * 0.5);
-  margin: 0 calc(sizes.$gutter * 0.5);
+  padding: calc(var(--line) / 2) calc(var(--gutter) * 0.5);
+  margin: 0 calc(var(--gutter) * 0.5);
   overflow-y: scroll;
-  border-radius: sizes.$border-radius-small;
+  border-radius: var(--border-radius-small);
   background: white;
 
   code {

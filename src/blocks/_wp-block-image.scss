@@ -11,16 +11,16 @@
       position: relative;
       left: inherit;
       text-align: initial;
-      font-size: sizes.$text;
+      font-size: var(--text);
       font-family: text.$sans-serif;
       color: #555;
       background: initial;
       max-height: initial;
       margin: {
-        top: calc(sizes.$line / 2);
-        bottom: calc(sizes.$line / 2);
-        left: sizes.$gutter;
-        right: sizes.$gutter;
+        top: calc(var(--line) / 2);
+        bottom: calc(var(--line) / 2);
+        left: var(--gutter);
+        right: var(--gutter);
       };
       padding: 0;
       width: auto;
