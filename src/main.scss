@@ -13,7 +13,7 @@ development.
 
 */
 
-@use "./build/file-header";
+@use "core/theme-meta";
 @use "./node_modules/modern-normalize/modern-normalize.css";
 
 @use "core/sizes";

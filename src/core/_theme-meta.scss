@@ -1,0 +1,35 @@
+/*
+This is the theme header. WordPress requires a file named `style.css` exist in
+the root template directory with the following header in order for it to
+recognise the generated folder as a template.
+
+Block comments starting slash-star-bang are preserved in the output after
+minification. Since Sass' transition to the new module format, this header
+must itself be provided as a module in order for it to appear at the top of
+the output file - it will be stripped if moved directly to `main.scss`.
+*/
+
+/*!
+Theme Name: danfoy2022
+Theme URI:
+Author: danfoy
+Author URI: https://www.danfoy.com
+Description: Theme for danfoy.com for 2022
+Version: 1.0.0
+License:
+License URI:
+Text Domain: danfoy2022
+Tags:
+*/
+
+/*
+The following message will be presented to visitors who view the raw output.
+*/
+
+/*!
+Hi! Feel free to have a look around.
+
+This stylesheet has an associated sourcemap. Use your browser's developer tools
+(shift + ctrl|cmd + i) to browse the source Sass modules from which this
+stylesheet was generated.
+*/
