@@ -15,17 +15,6 @@ if ( have_posts() ) :
 
         ?>
         <article <?php post_class( get_image_orientation() ); ?> id="post-<?php the_ID(); ?>">
-            <?php
-            if ( is_singular() && get_post_format() == 'image' ) {
-                $first_image = extract_first_image( $post_content );
-                $post_content = strip_image_from_content( $post_content ); ?>
-            <figure class="post-image">
-                <?php echo $first_image; ?>
-            </figure>
-            <?php
-            };
-            ?>
-
             <header class="post-header">
                 <h2 class="post-header-title">
                     <?php
@@ -41,6 +30,17 @@ if ( have_posts() ) :
                 </div>
                 <?php } ?>
             </header>
+
+            <?php
+            if ( is_singular() && get_post_format() == 'image' ) {
+                $first_image = extract_first_image( $post_content );
+                $post_content = strip_image_from_content( $post_content ); ?>
+            <figure class="post-image">
+                <?php echo $first_image; ?>
+            </figure>
+            <?php
+            };
+            ?>
 
             <?php if (!is_singular() && has_post_thumbnail()) {;?>
             <figure class="post-thumbnail">

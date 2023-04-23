@@ -35,8 +35,7 @@
   }
 
   &-footer {
-    font-family: text.$sans-serif;
-    margin: 0 sizes.$gutter;
+    margin: sizes.$line sizes.$gutter;
 
     &-meta {
 
