@@ -1,118 +1,24 @@
 @use "../core/text";
 @use "../core/colours";
 @use "../core/sizes";
-
-@mixin vertical-card {
-  grid: auto auto auto auto / 100%;
-
-  & .post-header {
-    margin: 0;
-    grid-row: 2;
-  }
-
-  & .post-thumbnail {
-    grid-row: 1;
-  }
-
-  & .post-content {
-    grid-row: 3;
-  }
-
-  & .post-footer {
-    grid-row: 4;
-  }
-}
-
-@mixin horizontal-card {
-  grid: auto 1fr auto / 50% 50%;
-
-  & .post-header {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  & .post-thumbnail {
-    display: inline-block;
-    grid-column: 1;
-    grid-row: 1 / -1;
-  }
-
-  & .post-content {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  & .post-footer {
-    grid-column: 2;
-    grid-row: 3;
-  }
-}
-
-@mixin image-showcase {
-  display: grid;
-  grid: auto auto auto auto / 100%;
-
-  & .post-header { grid-area: 2; }
-  & .post-content { grid-area: 3; }
-  & .post-footer { grid-area: 4; }
-  & .post-image {
-    grid-area: 1;
-    max-height: var(--usable-height);
-  }
-}
-
-@mixin split-image-showcase {
-  grid: auto 1fr auto / 2fr calc((var(--usable-width) / 5) * 2);
-
-  & .post-header {
-    grid-area: 1 / 2;
-
-    & #{text.$gutterable-elements} {
-      margin: var(--line) var(--half-gutter);
-    }
-  }
-  & .post-footer { grid-area: 3 / 2; }
-  & .post-content {
-    grid-area: 2 / 2;
-
-    & #{text.$gutterable-elements} {
-      margin: var(--line) var(--half-gutter);
-    }
-  }
-  & .post-image {
-    grid-area: 1 / 1 / -1 / 1;
-
-    position: fixed;
-    max-width: calc((( var(--usable-width) / 5 ) * 3));
-
-    line-height: 100vh;
-    text-align: center;
-    font-size: 0;
-
-    img {
-      display: inline-block;
-      vertical-align: middle;
-    }
-  }
-}
+@use "../components";
 
 .post.format-image {
   & .post-image {
     background-color: white;
     width: 100%;
-
-    @media (orientation: landscape) {
-      height: 100vh;
-    }
   }
 }
 
 .single .post.format-image {
-  @include image-showcase;
+
+  @media (orientation: portrait) {
+    @include components.vertical-image-showcase;
+  }
 
   &.image-portrait {
     @media (orientation: landscape) {
-      @include split-image-showcase;
+      @include components.horizontal-image-showcase;
     }
   }
 }
@@ -121,20 +27,22 @@
 .blog .post.format-image,
 .archive .post.format-image {
 
-  &.image-portrait,
-  &.image-landscape,
-  &.image-square {
-    @include vertical-card;
+  @media (orientation: portrait) {
+    &.image-portrait,
+    &.image-landscape,
+    &.image-square {
+      @include components.vertical-card;
 
-    @media (min-width: sizes.$breakpoint-tablet) {
-      @include horizontal-card;
+      @media (min-width: sizes.$breakpoint-tablet) {
+        @include components.horizontal-card;
+      }
     }
   }
 
   @media (orientation: landscape) {
     &.image-portrait,
     &.image-square {
-      @include horizontal-card;
+      @include components.horizontal-card;
     }
   }
 

@@ -1,0 +1,17 @@
+@mixin vertical-image-showcase {
+  display: grid;
+  grid:
+    [row1-start] "image" auto [row1-end]
+    [row2-start] "header" auto [row2-end]
+    /
+    auto;
+
+  & .post-image {
+    grid-area: image;
+    max-height: var(--usable-height);
+  }
+
+  & .post-header {
+    grid-area: header;
+  }
+}

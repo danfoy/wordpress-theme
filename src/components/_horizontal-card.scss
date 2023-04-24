@@ -1,0 +1,30 @@
+@mixin horizontal-card {
+  grid:
+    "thumbnail title" auto
+    "thumbnail excerpt" 1fr
+    "thumbnail footer" auto
+    / 50% 50%;
+
+  & .post-header {
+    grid-area: title;
+  }
+
+  & .post-thumbnail {
+    grid-area: thumbnail;
+    display: grid;
+    grid: 1 / 1;
+
+    .attachment-post-thumbnail {
+      align-self: center;
+      justify-self: center;
+    }
+  }
+
+  & .post-content {
+    grid-area: excerpt;
+  }
+
+  & .post-footer {
+    grid-area: footer;
+  }
+}
