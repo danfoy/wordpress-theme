@@ -9,10 +9,13 @@ $breakpoint-desktop-large: 1920px;
 
 :root {
 
+  // The base unit from which all other units are scaled
+  --base: 1.6rem;
+
   // Text (vertical flow)
-  --text: 1.6rem; // 16px base
+  --text: var(--base);
   --text-small: calc(var(--text) * 0.75);
-  --line: calc(var(--text) * 1.5); // 24px base
+  --line: calc(var(--text) * 1.5);
   --half-line: calc(var(--line) / 2);
 
   // Gutters (horizontal flow)
@@ -26,6 +29,19 @@ $breakpoint-desktop-large: 1920px;
   --masthead-size: calc(var(--line) * 2);
   --usable-width: 100vw;
   --usable-height: 100vh;
+
+  /*
+  Site-wide query modifications to the root variables.
+
+  Media queries for specific components are stored separately. The modifications
+  below are for changes with site-wide consequences - changing the base size,
+  modifiying the usable height etc.
+  */
+
+  // Scale up text size as widths increase
+  @media (min-width: 600px) {
+    --base: 1.8rem;
+  }
 
   @media (orientation: portrait) {
     @media (min-width: $breakpoint-smartphone-plus) {
@@ -57,12 +73,6 @@ $breakpoint-desktop-large: 1920px;
 @media (max-width: $breakpoint-smartphone-plus) {
   :root {
     --gutter: calc(var(--line) / 2);
-  }
-}
-
-@media (min-width: 600px) {
-  :root {
-    --text: 1.8rem;
   }
 }
 
