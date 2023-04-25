@@ -11,21 +11,25 @@ implement colour themes in the future by overriding the variables.
 // Aliases
 $text-primary: var(--text-primary);
 $text-secondary: var(--text-secondary);
-$masthead-title: var(--masthead-title);
+// $masthead-title: var(--masthead-title);
 $background-light: var(--background-light);
 $highlight-background: var(--highlight-background);
 $faint-foreground: var(--faint-foreground);
 $link: var(--link);
 
-// Default colours
 :root {
+  // Default colours
   --text-primary: #333;
   --text-secondary: #555;
-  --masthead-title: black;
   --background-light: #f0f0f0;
   --highlight-background: #fff;
   --faint-foreground: #d0d0d0;
   --link: deeppink;
+
+  // Specific selectors
+  --masthead-title-colour: black;
+  --masthead-background-colour: white;
+  --global-background-colour: var(--background-light);
 }
 
 // Standardization
@@ -37,8 +41,4 @@ body to black simply hides the notch instead, looking much better particularly
 on devices with OLED screens. */
 body {
   background-color: black;
-}
-
-.wrapper {
-  background-color: $background-light; // Override body background colour
 }
