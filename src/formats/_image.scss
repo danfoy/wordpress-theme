@@ -12,36 +12,22 @@
 
 .single .post.format-image {
 
-  @media (orientation: portrait) {
-    @include components.vertical-image-showcase;
-  }
+  @include components.vertical-image-showcase;
 
-  &.image-portrait {
-    @media (orientation: landscape) {
+  @media (orientation: landscape) {
+    &.image-portrait,
+    &.image-square {
       @include components.horizontal-image-showcase;
     }
   }
 }
 
-.home .post.format-image,
 .blog .post.format-image,
 .archive .post.format-image {
-
-  @media (orientation: portrait) {
-    &.image-portrait,
-    &.image-landscape,
-    &.image-square {
-      @include components.vertical-card;
-
-      @media (min-width: sizes.$breakpoint-tablet) {
-        @include components.horizontal-card;
-      }
-    }
-  }
+  @include components.vertical-card;
 
   @media (orientation: landscape) {
-    &.image-portrait,
-    &.image-square {
+    @media (min-width: sizes.$breakpoint-tablet) {
       @include components.horizontal-card;
     }
   }
@@ -87,10 +73,6 @@
     font-size: 0;
     padding: var(--half-gutter);
     background-color: colours.$highlight-background;
-
-    // &:hover {
-    //   padding: 0;
-    // }
 
     & .attachment-post-thumbnail {
       display: block;
