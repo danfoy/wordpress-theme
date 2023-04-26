@@ -20,11 +20,15 @@ export default {
         new MiniCssExtractPlugin({ // Extract CSS to specific file rather than bundle
             filename: 'style.css',
         }),
-        new CopyPlugin({ // Copy PHP files across to dist
+        new CopyPlugin({
             patterns: [
-                {
+                { // Copy PHP files across to dist
                     from: './src/**/*.php',
                     to: '[name][ext]' // Flat structure
+                },
+                { // Copy images to dist
+                    from: './src/images/**/*',
+                    to: 'images/[name][ext]' // Flat structure
                 },
             ],
         }),

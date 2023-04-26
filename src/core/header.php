@@ -11,16 +11,24 @@
 
         ?></title>
 
-
-        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicons/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_stylesheet_directory_uri(); ?>img/favicons/favicon-16x16.png">
-        <link rel="mask-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicons/safari-pinned-tab.svg" color="#000000">
-
+        <!-- Prefetches -->
+        <link rel="dns-prefetch" href="//www.google-analytics.com">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">        <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,700,700i" rel="stylesheet" />
+
+        <!-- Favicons: Generic -->
+        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon-32.png">
+        <link rel="icon" type="image/png" sizes="128x128" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon-128.png">
+        <link rel="icon" type="image/png" sizes="180x180" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon-180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon-192.png">
+        <link rel="icon" type="image/png" sizes="512x512" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon-512.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon-180.png"><!-- iOS/iPadOS/macOS/Safari -->
+        <link rel="shortcut icon" sizes="192x192" href=“<?php echo get_stylesheet_directory_uri(); ?>/images/favicon-192.png"><!-- Android -->
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,700,700i" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -32,14 +40,13 @@
         <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <meta name="theme-color" content="#ffffff">
-        <meta name="msapplication-TileColor" content="#ffc40d">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Device -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Meta -->
         <meta name="description" content="<?php bloginfo( 'description' ); ?>">
 
-        <link href="//www.google-analytics.com" rel="dns-prefetch">
-
+        <!-- WordPress Head -->
         <?php wp_head();?>
 
     </head>
