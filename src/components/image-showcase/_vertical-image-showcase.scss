@@ -1,0 +1,12 @@
+@use "image-showcase-base" as *;
+
+@mixin vertical {
+
+  @include image-showcase-base;
+
+  grid:
+    "image"
+    "header"
+    "content"
+    "footer";
+}

@@ -1,0 +1,24 @@
+@mixin image-showcase-base {
+
+  display: grid;
+
+  & .post-header {
+    grid-area: header;
+  }
+
+  & .post-image {
+    grid-area: image;
+    max-height: var(--usable-height);
+  }
+
+  & .post-content {
+    grid-area: content;
+
+    & :first-child { margin-top: 0; }
+    & :last-child { margin-bottom: 0; }
+  }
+
+  & .post-footer {
+    grid-area: footer;
+  }
+}

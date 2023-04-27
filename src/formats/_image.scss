@@ -2,6 +2,7 @@
 @use "../core/colours";
 @use "../core/sizes";
 @use "../components";
+@use "../components/image-showcase";
 
 .post.format-image {
   & .post-image {
@@ -12,12 +13,12 @@
 
 .single .post.format-image {
 
-  @include components.vertical-image-showcase;
+  @include image-showcase.vertical;
 
   @media (orientation: landscape) {
     &.image-portrait,
     &.image-square {
-      @include components.horizontal-image-showcase;
+      @include image-showcase.horizontal;
     }
   }
 }

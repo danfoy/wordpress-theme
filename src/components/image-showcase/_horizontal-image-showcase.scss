@@ -1,0 +1,41 @@
+@use "image-showcase-base" as *;
+@use "../../core/text";
+
+$image-width: calc(( var(--usable-width) / 5 ) * 3);
+$content-width: calc(( var(--usable-width) / 5 ) * 2);
+
+@mixin horizontal {
+
+  @include image-showcase-base;
+
+  display: grid;
+  justify-content: end;
+
+  grid:
+    "image header"
+    "image content"
+    "image footer"
+    /
+    $image-width $content-width;
+
+  & .post-image {
+
+    // Override to ensure full column height
+    grid-column: 1 / -1;
+
+    // Image is static on the page
+    position: fixed;
+    top: 0;
+    width: $image-width;
+    height: var(--usable-height);
+
+    // Child img element should be center/middle
+    display: grid;
+    grid: "img" 100% / 100%;
+    align-items: center;
+
+    img {
+      grid-area: img;
+    }
+  }
+}
