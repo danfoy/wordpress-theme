@@ -1,0 +1,29 @@
+/*
+Displays content as a tall card, with the post thumbnail at the top, followed
+by the title, content, and meta.
+*/
+
+@use "./base-thumbnail-card" as *;
+
+@mixin tall {
+
+  @include base-thumbnail-card;
+
+  display: grid;
+  grid:
+    "image" auto
+    "header" auto
+    /
+    auto;
+
+  grid-auto-rows: auto;
+
+  & .post-header {
+    grid-area: header;
+    margin: 0;
+  }
+
+  & .post-thumbnail {
+    grid-area: image;
+  }
+}

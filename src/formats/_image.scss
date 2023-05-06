@@ -1,7 +1,7 @@
 @use "../core/text";
 @use "../core/colours";
 @use "../core/sizes";
-@use "../components";
+@use "../components/thumbnail-card" as *;
 @use "../components/image-showcase";
 
 .post.format-image {
@@ -25,89 +25,5 @@
 
 .blog .post.format-image,
 .archive .post.format-image {
-  @include components.vertical-card;
-
-  @media (orientation: landscape) {
-    @media (min-width: sizes.$breakpoint-tablet) {
-      @include components.horizontal-card;
-    }
-  }
-
-  position: relative;
-  display: grid;
-  margin: {
-    top: var(--half-line);
-    right: var(--half-gutter);
-    bottom: calc(var(--half-line) + var(--line));
-    left: var(--half-gutter);
-  }
-
-  border: 1px solid colours.$faint-foreground;
-
-  // Remove margins from items in a frame
-  & #{text.$gutterable-elements} {
-    margin: var(--line) var(--half-gutter);
-  }
-
-  & .post-header {
-
-    &-title {
-      margin: 0;
-
-      &-link {
-        font-size: var(--text);
-        color: colours.$text-primary;
-        background-color: white;
-        text-decoration: none;
-        line-height: var(--line);
-        display: inline-block;
-        margin: var(--half-gutter);
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-  }
-
-  & .post-thumbnail {
-    font-size: 0;
-    padding: var(--half-gutter);
-    background-color: colours.$highlight-background;
-
-    & .attachment-post-thumbnail {
-      display: block;
-      margin: 0 auto;
-
-      max-height: 75vh;
-    }
-  }
-
-  & .post-content {
-
-    & p {
-      margin: var(--line) var(--half-gutter);
-    }
-
-    & p:first-child {
-      margin-top: 0;
-    }
-
-    & p:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  & .post-footer {
-    margin: var(--half-line) var(--half-gutter) var(--half-gutter) var(--half-gutter);
-    font-size: var(--text-small);
-
-    &-meta-list {
-      margin: 0;
-
-      &-item {
-        margin: 0;
-      }
-    }
-  }
+  @include thumbnail-card;
 }

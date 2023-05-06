@@ -1,4 +1,9 @@
-@mixin horizontal-card {
+/*
+Displays content as a wide card, with the post thumbnail on one side and the
+title, content, and meta on the other.
+*/
+
+@mixin wide {
   grid:
     "thumbnail title" auto
     "thumbnail excerpt" 1fr

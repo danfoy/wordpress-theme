@@ -1,0 +1,22 @@
+/*
+Namespace for the `thumbnail-card` mixin.
+*/
+
+@use "../../core/sizes";
+
+// .wide
+@use "./wide-thumbnail-card" as *;
+@forward "tall-thumbnail-card";
+
+// .tall
+@use "./tall-thumbnail-card" as *;
+@forward "wide-thumbnail-card";
+
+// Auto
+@mixin thumbnail-card {
+  @include tall;
+
+  @media (min-width: sizes.$breakpoint-tablet) {
+    @include wide;
+  }
+}
