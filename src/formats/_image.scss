@@ -1,8 +1,6 @@
-@use "../core/text";
 @use "../core/colours";
-@use "../core/sizes";
 @use "../components/thumbnail-card" as *;
-@use "../components/image-showcase";
+@use "../components/image-showcase" as *;
 
 .post.format-image {
   & .post-image {
@@ -12,15 +10,7 @@
 }
 
 .single .post.format-image {
-
-  @include image-showcase.vertical;
-
-  @media (orientation: landscape) {
-    &.image-portrait,
-    &.image-square {
-      @include image-showcase.horizontal;
-    }
-  }
+  @include image-showcase;
 }
 
 .blog .post.format-image,

@@ -1,10 +1,13 @@
 @use "image-showcase-base" as *;
 @use "../../core/text";
 
+// The image width cannot be fr units because the element is fixed and therefore
+// removed from the document flow. The negative space this creates needs to
+// be declared.
 $image-width: calc(( var(--usable-width) / 5 ) * 3);
 $content-width: calc(( var(--usable-width) / 5 ) * 2);
 
-@mixin horizontal {
+@mixin wide {
 
   @include image-showcase-base;
 

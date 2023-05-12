@@ -1,2 +1,24 @@
-@forward "horizontal-image-showcase";
-@forward "vertical-image-showcase";
+/*
+image-showcase component
+
+View for single image posts. Showcases the image as large as possible (i.e. uses
+the full span of the shortest viewport edge where possible, in conjunction with
+the global site masthead also switching to the shortest side.
+*/
+
+@use "image-showcase-tall" as *;
+@use "image-showcase-wide" as *;
+
+@forward "image-showcase-wide";
+@forward "image-showcase-tall";
+
+@mixin image-showcase {
+  @include tall;
+
+  @media (orientation: landscape) {
+    &.image-portrait,
+    &.image-square {
+      @include wide;
+    }
+  }
+}
