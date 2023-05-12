@@ -36,7 +36,7 @@ services:
       - '8000:80'
     restart: always
     volumes: [
-      './dist:/var/www/html/wp-content/themes/danfoy2021',
+      './dist:/var/www/html/wp-content/themes/danfoy2023',
       './data/uploads:/var/www/html/wp-content/uploads',
       './data/plugins:/var/www/html/wp-content/plugins',
       './env/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini',
