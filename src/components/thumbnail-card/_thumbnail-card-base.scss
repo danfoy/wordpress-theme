@@ -5,7 +5,7 @@ Common styles for thumbnail-card components
 @use "../../core/colours";
 @use "../../core/text";
 
-@mixin base-thumbnail-card {
+@mixin thumbnail-card-base {
   position: relative;
   display: grid;
   margin: {

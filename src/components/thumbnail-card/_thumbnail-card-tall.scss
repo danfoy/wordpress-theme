@@ -3,11 +3,11 @@ Displays content as a tall card, with the post thumbnail at the top, followed
 by the title, content, and meta.
 */
 
-@use "./base-thumbnail-card" as *;
+@use "thumbnail-card-base" as *;
 
 @mixin tall {
 
-  @include base-thumbnail-card;
+  @include thumbnail-card-base;
 
   display: grid;
   grid:

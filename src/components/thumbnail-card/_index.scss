@@ -1,18 +1,16 @@
 /*
-Namespace for the `thumbnail-card` mixin.
+thumbnail-card component
+
+A card-like layout for posts with thumbnails within an archive loop.
 */
 
 @use "../../core/sizes";
+@use "thumbnail-card-tall" as *;
+@use "thumbnail-card-wide" as *;
 
-// .wide
-@use "./wide-thumbnail-card" as *;
-@forward "tall-thumbnail-card";
+@forward "thumbnail-card-wide";
+@forward "thumbnail-card-wide";
 
-// .tall
-@use "./tall-thumbnail-card" as *;
-@forward "wide-thumbnail-card";
-
-// Auto
 @mixin thumbnail-card {
   @include tall;
 
